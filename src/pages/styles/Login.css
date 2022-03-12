@@ -1,0 +1,43 @@
+@media only screen and (min-width: 900px) {
+    .login-container {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+        background: rgb(34,78,195);
+        background: linear-gradient(45deg, rgba(34,78,195,1) 0%, rgba(247,45,253,1));
+
+        z-index: 1;
+    }
+
+    .login-box {
+        display: flex;
+        flex-flow: column;
+        width: 400px;
+        height: 600px;
+        background: #ffffff;
+        box-shadow: 5px 10px 20px #a5a5a5;
+    }
+
+    .login-title {
+        display: flex;
+        padding-left: 25px;
+        background: #bbff4e;
+    }
+
+    .login-content {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        margin: 25px;
+
+    }
+}
