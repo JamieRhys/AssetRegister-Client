@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import './styles/Login.css';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
@@ -33,26 +33,20 @@ class Login extends Component {
         const user = {username: this.state.username, password: this.state.password};
 
         fetch(SERVER_URL + "/login", { 
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
             method: 'POST', 
-            body: JSON.stringify(user) 
+            body: JSON.stringify(user),
+            headers: {"Content-Type": "application/x-www-form-urlencoded" }
         })
-            .then(response => {
-                const jwtToken = response.headers.get("Authorization");
+        .then(response => {
+            const jwtToken = response.headers.get("Authorization");
 
-                if(jwtToken != null) {
-                    sessionStorage.setItem("jwt", jwtToken);
-                    sessionStorage.setItem("username", this.state.username);
-                    this.setState({ isAuthenticated: true });
-                } else {
-                    this.setState({ open: true });
-                }
-            })
-            .catch(err => console.error(err));
+            if(jwtToken !== null) {
+                sessionStorage.setItem("jwt", jwtToken);
+                sessionStorage.setItem("username", this.state.username);
+                this.setState({isAuthenticated: true});
+            }
+        })
+        .catch(err => console.error(err));
     }
 
     render() {
@@ -72,7 +66,7 @@ class Login extends Component {
                                 <h1>Asset Register</h1>    
                                 <TextField name="username" placeholder="Username" onChange={this.handleChange} />
                                 <br />
-                                <TextField name="password" placeholder="Password" onChange={this.handleChange} />
+                                <TextField name="password" placeholder="Password" type="password" onChange={this.handleChange} />
                                 <br />
                                 <br />
                                 <Button onClick={this.login} variant="outlined" color="primary">Login</Button>

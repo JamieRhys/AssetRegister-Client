@@ -1,0 +1,38 @@
+html {
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-root {
+    display: flex;
+    flex-flow: column;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    background: var(--colour-secondary);
+}
+
+.title-bar {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 0 25px 0 25px;
+    background: var(--colour-primary-dark);
+    color: var(--colour-secondary-dark);
+}
+
+.user-greeting {
+    padding-left: 25px;
+}
+
+.container-date-time {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-version-bar {
+    width: 100%;
+    box-sizing: border-box;
+}
