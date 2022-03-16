@@ -11,8 +11,11 @@ import Typography from '@material-ui/core/Typography';
 import Menu from '@material-ui/core/Menu';
 import Grid from '@material-ui/core/Grid';
 
+import { Routes, Route, Link } from 'react-router-dom';
+
 import {SERVER_URL} from '../utils/Constants';
 import BasicCard from '../components/Card/BasicCard';
+import ActiveAssetTable from './ActiveAssetTable';
 
 class Home extends Component {
     constructor(props) {
@@ -53,7 +56,7 @@ class Home extends Component {
     render() {
         const activeAssets = [
             {
-                
+
             }
         ];
 
@@ -92,10 +95,15 @@ class Home extends Component {
                     <Grid item xs={ 4 } >
                         <BasicCard
                             title="Asset Database"
-                            body="Active Assets: "
+                            body={
+                                <Link to="/active-asset-database">Active Database</Link>
+                            }
                         />
                     </Grid>
                 </Grid>
+                <Routes>
+                    <Route exact path="/active-asset-database" component={ActiveAssetTable} />
+                </Routes>
             </Box>
         );
     }

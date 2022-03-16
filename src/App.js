@@ -8,6 +8,8 @@ import { createTheme }  from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
+import{ BrowserRouter } from 'react-router-dom';
+
 export const THEME = createTheme();
 
 class App extends Component {
@@ -26,9 +28,11 @@ class App extends Component {
 
   render() {
     return(
-      <div className='App'>
-        <Login />  
-      </div>
+      <BrowserRouter>
+        <div className='App'>
+          <Login />  
+        </div>
+      </BrowserRouter>
     )
   }
 }
