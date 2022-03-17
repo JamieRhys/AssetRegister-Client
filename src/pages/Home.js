@@ -96,14 +96,11 @@ class Home extends Component {
                         <BasicCard
                             title="Asset Database"
                             body={
-                                <Link to="/active-asset-database">Active Database</Link>
+                                <Link to="/active-asset-table">Active Database</Link>
                             }
                         />
                     </Grid>
                 </Grid>
-                <Routes>
-                    <Route exact path="/active-asset-database" component={ActiveAssetTable} />
-                </Routes>
             </Box>
         );
     }

@@ -23,16 +23,14 @@ class App extends Component {
     fetch(USER_URL)
       .then((response) => response.json())
       .then((responseData) => { this.setState({ user: responseData._embedded.user }); })
-      .catch((err) => console.error("THIS IS A SERIOUS ERROR INDEED!" + err));
+      .catch((err) => console.error(err));
   }
 
   render() {
     return(
-      <BrowserRouter>
-        <div className='App'>
-          <Login />  
-        </div>
-      </BrowserRouter>
+      <div className='App'>
+        <Login />  
+      </div>
     )
   }
 }

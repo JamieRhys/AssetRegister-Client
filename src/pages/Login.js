@@ -6,8 +6,11 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 
+import { Route, Routes } from 'react-router-dom';
+
 import Home from './Home';
 import { SERVER_URL } from '../utils/Constants';
+import ActiveAssetTable from './ActiveAssetTable';
 
 class Login extends Component {
     constructor(props) {
@@ -53,7 +56,11 @@ class Login extends Component {
         //return (<Home />)
 
         if(this.state.isAuthenticated === true) {
-            return(<Home />);
+            return(         
+              <Routes>
+                <Route path="/" element={ <Home /> } />
+                <Route path="/active-asset-table" element={ <ActiveAssetTable /> } />
+              </Routes>);
         } else {
             return(
                 <div className='login-container'>
