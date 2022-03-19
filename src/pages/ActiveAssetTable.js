@@ -34,23 +34,14 @@ class ActiveAssetTable extends Component {
     }
 
     render() {
-        const tableColumns = [
-            {
-                Header: "Asset Tag",
-                accessor: "assetTag"
-            },
-            {
-                Header: "Asset Type",
-                accessor: "type"
-            },
-            {
-                Header: "Manufacturer",
-                accessor: "manufacturer"
-            },
-            {
-                Header: "Model",
-                accessor: "model"
-            }
+        const assetTableColumns = [
+            { Header: "Asset Tag", accessor: "assetTag", width: 50 },
+            { Header: "Asset Type", accessor: "type", width: 45 },
+            { Header: "Manufacturer", accessor: "manufacturer" },
+            { Header: "Model", accessor: "model" },
+            { Header: "Serial Number/IMEI", accessor: "identificationNumber" },
+            { Header: "Location", accessor: "location" },
+            { Header: "Current User", accessor: "currentUser.fullName" },
         ];
 
         const data = this.state.assets;
@@ -76,7 +67,7 @@ class ActiveAssetTable extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <BaseTable columns={tableColumns} data={this.state.assets} />
+                <BaseTable columns={assetTableColumns} data={this.state.assets} />
             </Box>
         );
     }
